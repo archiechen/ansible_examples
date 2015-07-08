@@ -8,7 +8,7 @@
    - hadoop-hdfs-namenode
 
 - name: Copy the hadoop configuration files for no ha
-  template: src=roles/common/templates/hadoop_conf/{{ item }}.j2 dest=/etc/hadoop/conf/{{ item }}
+  template: src=roles/common/templates/hadoop_conf/{{ item }}.j2 dest=/etc/hadoop/conf/{{ item }} mode=644
   with_items: 
    - core-site.xml
    - hadoop-metrics.properties

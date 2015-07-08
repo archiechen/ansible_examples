@@ -2,7 +2,7 @@
   
   <property>
     <name>mapred.job.tracker</name>
-    <value>{{ hostvars[groups['hadoop_masters'][0]]['ansible_hostname'] }}:{{ hadoop['mapred_job_tracker_port'] }}</value>
+    <value>{{ hostvars[groups['hadoop_masters'][0]]['inventory_hostname'] }}:{{ hadoop['mapred_job_tracker_port'] }}</value>
   </property>
 
   <property>

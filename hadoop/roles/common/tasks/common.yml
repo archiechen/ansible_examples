@@ -11,7 +11,7 @@
   file:  state=directory path=/usr/java/
 
 - name: create a link for java
-  file: src=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre state=link path=/usr/java/default
+  file: src=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.35.x86_64/jre state=link path=/usr/java/default
 
 - name: Create the hosts file for all machines
   template: src=etc/hosts.j2 dest=/etc/hosts
@@ -26,3 +26,8 @@
   template: src=iptables.j2 dest=/etc/sysconfig/iptables
   notify: restart iptables
 
+- name: Install SElinux ansible module dependencies
+  yum: name=libselinux-python state=installed
+
+- name: Disable SELinux in conf file
+  selinux: state=disabled

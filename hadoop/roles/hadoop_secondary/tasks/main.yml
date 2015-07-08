@@ -3,7 +3,7 @@
 
 
 - name: Install the namenode and jobtracker packages
-  yum: name=${item} state=installed
+  yum: name={{ item }} state=installed
   with_items: 
    - hadoop-0.20-mapreduce-jobtrackerha
    - hadoop-hdfs-namenode
@@ -44,7 +44,7 @@
 
 - name: start zkfc for namenodes
   service: name=hadoop-hdfs-zkfc state=started
-  delegate_to: ${item}
+  delegate_to: '{{ item }}'
   with_items: groups.hadoop_masters
 
 - name: Give permissions for mapred users
