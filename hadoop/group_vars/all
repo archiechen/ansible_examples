@@ -1,6 +1,6 @@
 iface: eth1
 
-ha_enabled: False
+ha_enabled: True
 
 hadoop:
     
